@@ -8,9 +8,34 @@
    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.6.4/dist/full.css" rel="stylesheet" type="text/css" />
    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-   <header></header>
-   <main></main>
+<body class="max-w-screen-xl mx-auto mt-11">
+   <header>
+      <nav class="mb-4">
+         <div class="navbar bg-base-100">
+            <div class="navbar-start">
+               <img src="./Logo.png" alt="KA Tube">
+            </div>
+            <div class="navbar-center">
+               <button class="btn btn-active btn-ghost">Sort By View</button>
+            </div>
+            <div class="navbar-end">
+               <button class="btn btn-active btn-error text-white">Blog</button>
+            </div>
+          </div>
+      </nav>
+   </header>
+   <hr>
+   <main class="">
+      <div class="flex justify-center gap-5 my-7">
+         <button class="btn btn-active btn-ghost"></button>
+         <button class="btn btn-active btn-ghost"></button>
+         <button class="btn btn-active btn-ghost"></button>
+         <button class="btn btn-active btn-ghost"></button>
+       </div>
+       <section id="tube-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+
+       </section>
+   </main>
    <footer></footer>
 
    <script src="./js/phTube.js"></script>
