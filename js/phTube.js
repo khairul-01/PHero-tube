@@ -49,7 +49,7 @@ const display = async (id) => {
       div.classList = `card w-full bg-base-100 shadow-xl max-w-[400px] mx-auto`
       div.innerHTML = 
       `<div class="relative">
-         <figure><img src="${details.thumbnail}" alt="${details.title}" class="h-[200px]" />
+         <figure><img src="${details.thumbnail}" alt="${details.title}" class="h-[230px]" />
             <div class="absolute bottom-3 right-2">
                <span id="${timeId}" class="badge badge-neutral hidden">${time}</span>
             </div>
@@ -75,7 +75,7 @@ const display = async (id) => {
       else{
          document.getElementById(`${timeId}`).classList.add('hidden');
       }
-      if(details.authors[0].verified === true){
+      if(details.authors[0].verified !== false){
          document.getElementById(`${details.authors[0].profile_name}`).classList.remove('hidden');
       }
       else{
@@ -147,7 +147,7 @@ function dataSortByView(id){
       div.classList = `card w-full bg-base-100 shadow-xl max-w-[400px] mx-auto`
       div.innerHTML = 
       `<div class="relative">
-         <figure><img src="${details.thumbnail}" alt="${details.title}" class="h-[200px]" />
+         <figure><img src="${details.thumbnail}" alt="${details.title}" class="h-[230px] " />
             <div class="absolute bottom-3 right-2">
                <span id="${timeId}" class="badge badge-neutral hidden">${time}</span>
             </div>
@@ -173,7 +173,7 @@ function dataSortByView(id){
       else{
          document.getElementById(`${timeId}`).classList.add('hidden');
       }
-      if(details.authors[0].verified === true){
+      if(details.authors[0].verified !== false){
          document.getElementById(`${details.authors[0].profile_name}`).classList.remove('hidden');
       }
       else{
