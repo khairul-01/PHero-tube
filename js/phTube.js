@@ -46,12 +46,18 @@ const display = async (id) => {
             <h2 class="card-title">
                ${details.title}
             </h2>
-            <p>${details.authors[0].profile_name}</p>
+            <p>${details.authors[0].profile_name}  <span id="${details.authors[0].profile_name}" class="badge badge-primary badge-xs rounded-full p-2 hidden"><i class="fa-solid fa-check"></i></span></p>
             <p>${details?.others?.views}</p>
          </div>
          
       </div>`;
       tubeContainer.appendChild(div);
+      if(details.authors[0].verified === true){
+         document.getElementById(`${details.authors[0].profile_name}`).classList.remove('hidden');
+      }
+      else{
+         document.getElementById(`${details.authors[0].profile_name}`).classList.add('hidden');
+      }
    })
    if(tubeContainer.innerText === ""){
       const noContent = document.getElementById('no-content');
@@ -115,11 +121,17 @@ function dataSortByView(id){
             <h2 class="card-title">
                ${details.title}
             </h2>
-            <p>${details.authors[0].profile_name}</p>
+            <p>${details.authors[0].profile_name}  <span id="${details.authors[0].profile_name}" class="badge badge-primary badge-xs rounded-full p-2 hidden"><i class="fa-solid fa-check"></i></span></p>
             <p>${details?.others?.views}</p>
          </div>
          
       </div>`;
       tubeContainer.appendChild(div);
+      if(details.authors[0].verified === true){
+         document.getElementById(`${details.authors[0].profile_name}`).classList.remove('hidden');
+      }
+      else{
+         document.getElementById(`${details.authors[0].profile_name}`).classList.add('hidden');
+      }
    })
 }
