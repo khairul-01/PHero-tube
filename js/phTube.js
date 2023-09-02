@@ -181,3 +181,7 @@ function dataSortByView(id){
       }
    })
 }
+
+const blogLinking = () => {
+   window.location.href('../blog.html')
+}
