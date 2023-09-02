@@ -26,18 +26,35 @@ const display = async (id) => {
    const res = await fetch(`https://openapi.programming-hero.com/api/videos/category/${id}`);
    const data = await res.json();
    console.log(data);
-   let sort = data.data;
+
+   // Getting main card container id
    const tubeContainer = document.getElementById('tube-container');
    
    // initially setting no content
    tubeContainer.innerText = "";
+   let timeId = '';
+
    data.data.forEach(details => {
       console.log(details);
+      let time = '';
+      timeId += 1;
+      if(details.others.posted_date){
+         const date = details.others.posted_date;
+         const hours = parseInt(date/3600);
+         const minutes = parseInt((date - (hours*3600))/60);
+         time = `${hours}hours ${minutes} min ago`;
+      }
 
       const div = document.createElement('div');
       div.classList = `card w-full bg-base-100 shadow-xl max-w-[400px] mx-auto`
       div.innerHTML = 
-      `<figure><img src="${details.thumbnail}" alt="Shoes" class="h-[200px]" /></figure>
+      `<div class="relative">
+         <figure><img src="${details.thumbnail}" alt="${details.title}" class="h-[200px]" />
+            <div class="absolute bottom-3 right-2">
+               <span id="${timeId}" class="badge badge-neutral hidden">${time}</span>
+            </div>
+         </figure>
+      </div>
       <div class="card-body flex flex-row">
          <div class="w-1/4">
             <img class="rounded-full h-[50px]" src="${details.authors[0].profile_picture}" alt="">
@@ -52,6 +69,12 @@ const display = async (id) => {
          
       </div>`;
       tubeContainer.appendChild(div);
+      if(details.others.posted_date){
+         document.getElementById(`${timeId}`).classList.remove('hidden');
+      }
+      else{
+         document.getElementById(`${timeId}`).classList.add('hidden');
+      }
       if(details.authors[0].verified === true){
          document.getElementById(`${details.authors[0].profile_name}`).classList.remove('hidden');
       }
@@ -59,6 +82,7 @@ const display = async (id) => {
          document.getElementById(`${details.authors[0].profile_name}`).classList.add('hidden');
       }
    })
+   
    if(tubeContainer.innerText === ""){
       const noContent = document.getElementById('no-content');
       noContent.classList.remove('hidden');
@@ -105,14 +129,30 @@ function dataSortByView(id){
    
    // initially setting no content
    tubeContainer.innerText = "";
+   let timeId = ''
 
    arr.forEach(details => {
       console.log(details);
 
+      let time = '';
+      timeId += 1;
+      if(details.others.posted_date){
+         const date = details.others.posted_date;
+         const hours = parseInt(date/3600);
+         const minutes = parseInt((date - (hours*3600))/60);
+         time = `${hours}hours ${minutes} min ago`;
+      }
+
       const div = document.createElement('div');
       div.classList = `card w-full bg-base-100 shadow-xl max-w-[400px] mx-auto`
       div.innerHTML = 
-      `<figure><img src="${details.thumbnail}" alt="Shoes" class="h-[200px]" /></figure>
+      `<div class="relative">
+         <figure><img src="${details.thumbnail}" alt="${details.title}" class="h-[200px]" />
+            <div class="absolute bottom-3 right-2">
+               <span id="${timeId}" class="badge badge-neutral hidden">${time}</span>
+            </div>
+         </figure>
+      </div>
       <div class="card-body flex flex-row">
          <div class="w-1/4">
             <img class="rounded-full h-[50px]" src="${details.authors[0].profile_picture}" alt="">
@@ -127,6 +167,12 @@ function dataSortByView(id){
          
       </div>`;
       tubeContainer.appendChild(div);
+      if(details.others.posted_date){
+         document.getElementById(`${timeId}`).classList.remove('hidden');
+      }
+      else{
+         document.getElementById(`${timeId}`).classList.add('hidden');
+      }
       if(details.authors[0].verified === true){
          document.getElementById(`${details.authors[0].profile_name}`).classList.remove('hidden');
       }
