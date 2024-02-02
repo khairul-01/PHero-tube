@@ -1,6 +1,6 @@
 # PHero-tube
 
-## [ Live Link: ](apathetic-orange.surge.sh)
+## Live Link: apathetic-orange.surge.sh
 
 ## [ Private Repo Link](https://classroom.github.com/a/HIPmbF3j)
 
